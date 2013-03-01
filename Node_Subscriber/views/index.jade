@@ -1,0 +1,18 @@
+doctype 5
+html
+head
+	link(rel='stylesheet', href='style.css')
+	script(type='text/javascript',src='/socket.io/socket.io.js')
+	script(type='text/javascript',src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js')
+	script(type='text/javascript')
+		var appURL = !{JSON.stringify(urlToListen)};
+		var socket=io.connect(appURL);
+		socket.on('event1', function(messages){
+			$('textarea#myArea').val(messages);
+		});
+			
+body
+	h1= title
+	textarea(id='myArea',width="400",height="200")
+
+	
